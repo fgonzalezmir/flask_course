@@ -1,0 +1,13 @@
+{% extends 'base/base2.html.j2' %}
+{% block title %} Review {% endblock %}
+{% block content %}
+
+    <div class="container">
+        {% if comments_lis %}
+            {% for comment in comments_lis %}
+                <p> {{ comment.username }} - {{ comment.text }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages() %}
+        {%if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li> {{ message }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %} {% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <p class="copyright text-muted">&copy; Curso Flask 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
